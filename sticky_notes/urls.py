@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+'''
+URL patterns for the entire project.
+Admin URL pattern, mapping to the Django admin interface.
+Added URL pattern from the posts app.
+'''
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('posts.urls'))
