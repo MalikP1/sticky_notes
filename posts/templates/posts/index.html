@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Sticky Notes - {{ page_title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ page_title }}</h2>
+    <a href="{% url 'create_post' %}">Create new note</a>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'post' pk=post.pk %}">View Note</a>
+                <p>{{ post.title }}</p>
+                <p>{{ post.content }}</p>
+                <p>Created by: {{ post.author }}</p>
+                <a href="{% url 'update_post' pk=post.pk %}">Edit Note</a>
+                <a href="{% url 'delete_post' pk=post.pk %}">Delete Note</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
